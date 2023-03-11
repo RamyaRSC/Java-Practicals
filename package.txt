@@ -1,0 +1,32 @@
+Create mypackage folder inside mathematics folder
+Follow code will be in mathematics with mathmethods class
+//q10 creating packages
+package mathematics;
+public class mathmethods{
+	public static float sqr(float n){
+		return(n*n);
+	}
+	public static int sqr(int n){
+		return(n*n);
+	}
+	public static double sqr(double n){
+		return(n*n);
+	}
+	public static long sqr(long n){
+		return(n*n);
+	}
+}
+Following code will be in mypackages which will be run
+import java.io.*;
+import java.util.Scanner;
+import mathematics.mathmethods;
+
+class q10{
+	public static void main(String[] args){		
+		Scanner obj=new Scanner(System.in);
+		int a=nextInt();
+		mathmethods mmm=new mathmethods();
+		int b=mathmethods.sqr(a);
+		System.out.println("Square is "+b);
+	}
+}
