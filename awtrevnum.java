@@ -1,43 +1,38 @@
 import java.awt.*;
 import java.awt.event.*;
-
-public class awtrevnum extends Frame implements ActionListener {
-
-    private Label label;
-    private TextField textField;
-
-    public awtrevnum() {
-        super("Reverse Number");
-        setLayout(new FlowLayout());
- 
-        textField = new TextField(10);
-        add(textField);
-
-        Button button = new Button("Reverse");
-        add(button);
-        button.addActionListener(this);
-
-        label = new Label();
-        label.setPreferredSize(new Dimension(200, 20));
-        add(new Label("Enter a number: "));
-        add(label);
-
-        setSize(900, 200);
-        setVisible(true);
+class awtrevnum extends Frame implements ActionListener {
+    Label l1,l2;
+    TextField t1;
+    Button b1;
+    Frame f1;
+    awtrevnum() {
+        f1= new Frame();
+        l1= new Label("Enter a number: ");
+        f1.add(l1);
+        t1= new TextField();
+        f1.add(t1);
+        f1.add(new Label());
+        b1= new Button("Reverse");
+        f1.add(b1);
+        f1.add(new Label());
+        l2= new Label(" ");
+        f1.add(l2);
+        f1.setSize(300,300);
+        f1.setVisible(true);
+        f1.setLayout(new GridLayout(3,2));
+        b1.addActionListener(this);
     }
-
-    public void actionPerformed(ActionEvent e) {
-        String input = textField.getText();
-        String reverse = "";
-
-        for (int i = input.length() - 1; i >= 0; i--) {
-            reverse += input.charAt(i);
+    public void actionPerformed (ActionEvent e) {
+        int num= Integer.parseInt(t1.getText());
+        int reversed=0;
+        while(num!=0){
+            int digit=num%10;
+            reversed=reversed*10+digit;
+            num=num/10;
         }
-
-        label.setText("Reverse number: " + reverse);
+        l2.setText("Reversed number is "+ reversed);
     }
-
-    public static void main(String[] args) {
-        awtrevnum frame = new awtrevnum();
+    public static void main(String [] args){
+        new awtrevnum();
     }
 }
